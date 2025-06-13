@@ -35,16 +35,6 @@ I'll be following the playlist lesson-by-lesson, writing notes in `lessons/` and
 
 ---
 
-## ✅ Progress Tracker
-
-| Lesson | Title                           | Notes        | Code         |
-|--------|----------------------------------|--------------|--------------|
-| ✅ 01   | Intro to React Native           | [notes](lessons/01-intro.md) | [code](code/01-intro/) |
-| ⏳ 02   | What is React Native?           | [notes](lessons/02-react-native.md) | [code](code/02-react-native/) |
-| ☐ ...  | ...                              | ...          | ...          |
-
----
-
 ## 🛠️ Tools I'm Using
 
 - React Native CLI (not Expo)
