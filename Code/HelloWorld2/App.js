@@ -1,29 +1,32 @@
-import { View, Text, Image, ImageBackground, ScrollView, Pressable} from "react-native";
+import { View, Button, Modal, Text} from "react-native";
+import { useState } from "react";
 
 const logoImage = require('./assets/adaptive-icon.png')
 
 export default function App(){
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return(
-    <View style={{flex:1, backgroundColor: "plum", padding:40}}>
+    <View style={{backgroundColor: 'plum', flex:1, padding:60}}>
+      <Button title="Press" color="midnightblue"
+        onPress={() => setIsModalVisible(true)}
+      />
 
-      <ScrollView>
-       
-       <Pressable onLongPress={() => console.log("Image Long Pressed")} onPressOut={console.log("Pressed Stop on Image")}>
-        <Image source={logoImage} style={{width:300, height:300}} />
-       </Pressable>
 
-      <Pressable onPress={() => console.log("Text Pressed")}>
-        <Text style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
 
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-        </Text>
-      </Pressable>
-
-        </ScrollView>
+      {/* Add the modal statement before </View> */}
+      <Modal
+        visible={isModalVisible}
+        onRequestClose={() => setIsModalVisible(false)}
+        animationType="slide"
+        presentationStyle="overFullScreen"
+      >
+        <View style={{backgroundColor: 'lightblue', flex:1, padding:60}}>
+          <Text>This is the Modal</Text>
+        </View>
+        
+      </Modal>
     </View>
   );
 }
