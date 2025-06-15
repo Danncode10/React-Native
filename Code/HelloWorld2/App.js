@@ -20,7 +20,7 @@ export default function App(){
         visible={isModalVisible}
         onRequestClose={() => setIsModalVisible(false)}
         animationType="slide"
-        presentationStyle="overFullScreen"
+        presentationStyle="pageSheet"
       >
         <View style={{backgroundColor: 'lightblue', flex:1, padding:60}}>
           <Text>This is the Modal</Text>
