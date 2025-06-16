@@ -3,7 +3,7 @@ import { View, Text , StyleSheet} from 'react-native';
 export default function App() {
   return (
    <View style={styles.container} >
-    <View style={[styles.box, styles.lightblueBg]}>
+    <View style={[styles.box, styles.lightblueBg, styles.boxShadow]}>
       <Text>Parent</Text>
         
         <View style={[styles.box, styles.boxChild, styles.pinkBg]}>
@@ -12,7 +12,7 @@ export default function App() {
 
     </View>
 
-    <View style={[styles.box, styles.pinkBg]}>
+    <View style={[styles.box, styles.pinkBg, styles.androidShadow]}>
       <Text>Box 2</Text>
     </View>
   </View>
@@ -34,7 +34,8 @@ export const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderColor: 'black',
-    borderStyle: 'solid'
+    borderStyle: 'solid',
+    borderRadius: 20,
   },
   boxChild:{
     height: '50%',
@@ -45,6 +46,18 @@ export const styles = StyleSheet.create({
   },
   pinkBg: {
     backgroundColor: 'pink'
+  },
+  boxShadow:{
+    shadowColor: "#333333",
+    shadowOffset:{
+      width: 6,
+      height: 6
+    },
+    shadowOpacity: 0.6,
+    shadowRadius: 4
+  },
+  androidShadow: {
+    elevation: 10
   }
 
   
