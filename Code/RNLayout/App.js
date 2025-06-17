@@ -38,9 +38,18 @@ import Box from './components/Box';
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={[styles.c_style, styles.addBorder]}>
-        <Box style={styles.margin20}>A</Box>
-        <Box style={styles.margin20}>B</Box>
+
+      <View style={[styles.c_style, styles.addBorder, styles.margin10]}>
+        <Box style={styles.margin10}>A</Box>
+        <Box style={{borderWidth: 0}}>C</Box>
+        <Box style={styles.margin10}>B</Box>
+      </View>
+
+      <View style={[styles.addBorder, styles.margin10, {flex: 1}]}>
+        <Box style={[styles.margin10, styles.i_style]}>I</Box>
+        <Box style={[styles.margin10, styles.h_style, {justifyContent: 'center', alignItems: 'flex-end'}]}>
+          <Text>H</Text>
+        </Box>
       </View>
     </View>
   );
@@ -61,16 +70,25 @@ const styles = StyleSheet.create({
       borderWidth: 5,
   },
 
-  margin20: {
-    margin: 20
+  margin10: {
+    margin: 10
   },
-
 
   c_style: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: 175,
+    // width: 175,
+    flex: 0.4,
   },
 
-   
+
+  i_style: {
+    flex: 1
+  },
+
+  h_style: {
+    flex: 6,
+    
+  }
+
 });
