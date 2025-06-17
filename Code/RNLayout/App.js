@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     borderWidth: 6,
     borderColor: 'red',
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   },
 });
