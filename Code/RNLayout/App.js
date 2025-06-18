@@ -47,9 +47,16 @@ export default function App() {
 
       <View style={[styles.addBorder, styles.margin10, {flex: 1}]}>
         <Box style={[styles.margin10, styles.i_style]}>I</Box>
-        <Box style={[styles.margin10, styles.h_style, {justifyContent: 'center', alignItems: 'flex-end'}]}>
-          <Text>H</Text>
+
+        <Box style={[styles.margin10, styles.h_style]}>
+
+            <Box style={{flex: 0.2}}>D</Box>
+            <Box style={{flex: 0.2}}>E</Box>
+            <Box style={{flex: 0.2}}>F</Box>
+            <Box style={{flex: 0.2}}>G</Box>
+          
         </Box>
+
       </View>
     </View>
   );
@@ -88,7 +95,8 @@ const styles = StyleSheet.create({
 
   h_style: {
     flex: 6,
-    
-  }
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+  },
 
 });
