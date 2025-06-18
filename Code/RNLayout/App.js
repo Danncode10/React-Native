@@ -114,16 +114,29 @@ export default function App(){
       <View style={[styles.addBorder, styles.topBox]}>
         {/* Menu */}
         <View style={[styles.addBorder, styles.upperTopBox]}>
-          <View style={[styles.addBorder, styles.childUpperTopBox]}></View>
-          <View style={[styles.addBorder, styles.childUpperTopBox]}></View>
-          <View style={[styles.addBorder, styles.childUpperTopBox]}></View>
-          <View style={[styles.addBorder, styles.childUpperTopBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
         </View>
         <View style={[styles.addBorder, styles.lowerTopBox]}></View>
       </View>
 
       {/* Bot Box */}
-      <View style={[styles.addBorder, styles.botBox]}></View>
+      <View style={[styles.addBorder, styles.botBox]}>
+        <View style={[styles.addBorder, styles.childBox]}>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+        </View>
+        <View style={[styles.addBorder, styles.childBox]}>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+          <View style={[styles.addBorder, styles.childBox]}></View>
+        </View>
+      </View>
     </View>
   );
 }
@@ -148,7 +161,7 @@ const styles = StyleSheet.create({
         margin: 5,
         flexDirection: 'row'
       },
-          childUpperTopBox: {
+          childBox: {
             flex: 1,
             margin: 5,
           },
@@ -159,6 +172,8 @@ const styles = StyleSheet.create({
 
   botBox: {
     flex: 1,
-    margin: 5
-  }
+    margin: 5,
+    flexDirection: 'row'
+  }, 
+  // childBox also used in botBox
 });
