@@ -111,30 +111,30 @@ export default function App(){
   return(
     <View style={styles.container}>
       {/* Top Box */}
-      <View style={[styles.addBorder, styles.topBox]}>
+      <View style={[styles.addShadow, styles.topBox]}>
         {/* Menu */}
-        <View style={[styles.addBorder, styles.upperTopBox]}>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
+        <View style={[styles.upperTopBox]}>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
         </View>
-        <View style={[styles.addBorder, styles.lowerTopBox]}></View>
+        <View style={[styles.addShadow, styles.lowerTopBox, {shadowOffset: {width: 0, height: -2}}]}></View>
       </View>
 
       {/* Bot Box */}
-      <View style={[styles.addBorder, styles.botBox]}>
-        <View style={[styles.addBorder, styles.childBox]}>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
+      <View style={[styles.addShadow, styles.botBox]}>
+        <View style={[, styles.childBox]}>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
         </View>
-        <View style={[styles.addBorder, styles.childBox]}>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
-          <View style={[styles.addBorder, styles.childBox]}></View>
+        <View style={[, styles.childBox]}>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
+          <View style={[styles.addShadow, styles.childBox]}></View>
         </View>
       </View>
     </View>
@@ -149,9 +149,23 @@ const styles = StyleSheet.create({
     borderBlockColor: 'red',
     marginTop: 60,
   },
-  addBorder: {
-    borderWidth: 5,
+  addShadow: {
+    backgroundColor: 'plum', // Required to see shadow
+    borderRadius: 10, // Optional, makes it look nicer
+
+    // iOS shadow
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 0,
   },
+
+  // Android shadow
+  elevation: 8, // Try adjusting this for more/less shadow
+},
+
   topBox: {
     flex: 1,
     margin: 5,
