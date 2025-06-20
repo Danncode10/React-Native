@@ -105,37 +105,109 @@
 // Practice 2: 
 
 
+// import {View, StyleSheet} from 'react-native';
+
+// export default function App(){
+//   return(
+//     <View style={styles.container}>
+//       {/* Top Box */}
+//       <View style={[styles.addShadow, styles.topBox]}>
+//         {/* Menu */}
+//         <View style={[styles.upperTopBox]}>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//         </View>
+//         <View style={[styles.addShadow, styles.lowerTopBox, {shadowOffset: {width: 0, height: -2}}]}></View>
+//       </View>
+
+//       {/* Bot Box */}
+//       <View style={[styles.addShadow, styles.botBox]}>
+//         <View style={[, styles.childBox]}>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//         </View>
+//         <View style={[, styles.childBox]}>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//           <View style={[styles.addShadow, styles.childBox]}></View>
+//         </View>
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     backgroundColor: 'plum',
+//     flex: 1, 
+//     padding: 20,
+//     borderBlockColor: 'red',
+//     marginTop: 60,
+//   },
+//   addShadow: {
+//     backgroundColor: 'plum', // Required to see shadow
+//     borderRadius: 10, // Optional, makes it look nicer
+
+//     // iOS shadow
+//     shadowColor: '#000',
+//     shadowOpacity: 0.5,
+//     shadowRadius: 10,
+//     shadowOffset: {
+//       width: 0,
+//       height: 0,
+//   },
+
+//   // Android shadow
+//   elevation: 8, // Try adjusting this for more/less shadow
+// },
+
+//   topBox: {
+//     flex: 1,
+//     margin: 5,
+//   },
+//       upperTopBox:{
+//         flex: 1,
+//         margin: 5,
+//         flexDirection: 'row'
+//       },
+//           childBox: {
+//             flex: 1,
+//             margin: 5,
+//           },
+//       lowerTopBox: {
+//         flex: 5,
+//         margin: 5
+//       },
+
+//   botBox: {
+//     flex: 1,
+//     margin: 5,
+//     flexDirection: 'row'
+//   }, 
+//   // childBox also used in botBox
+// });
+
+
+// Practice 3:
+
 import {View, StyleSheet} from 'react-native';
 
 export default function App(){
+
   return(
     <View style={styles.container}>
-      {/* Top Box */}
-      <View style={[styles.addShadow, styles.topBox]}>
-        {/* Menu */}
-        <View style={[styles.upperTopBox]}>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-        </View>
-        <View style={[styles.addShadow, styles.lowerTopBox, {shadowOffset: {width: 0, height: -2}}]}></View>
+      <View style={[styles.addBorder, styles.flex1, styles.flexDirectionRows]}>
+        <View style={[styles.addBorder, styles.flex1,]}></View>
+        <View style={[styles.addBorder, styles.flex1]}></View>
       </View>
-
-      {/* Bot Box */}
-      <View style={[styles.addShadow, styles.botBox]}>
-        <View style={[, styles.childBox]}>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-        </View>
-        <View style={[, styles.childBox]}>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-          <View style={[styles.addShadow, styles.childBox]}></View>
-        </View>
+      <View style={[styles.addBorder, styles.flex1, styles.flexDirectionRows]}>
+        <View style={[styles.addBorder, styles.flex1]}></View>
+        <View style={[styles.addBorder, styles.flex1]}></View>
       </View>
     </View>
   );
@@ -144,50 +216,17 @@ export default function App(){
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'plum',
-    flex: 1, 
-    padding: 20,
-    borderBlockColor: 'red',
+    flex: 1,
     marginTop: 60,
   },
-  addShadow: {
-    backgroundColor: 'plum', // Required to see shadow
-    borderRadius: 10, // Optional, makes it look nicer
-
-    // iOS shadow
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 0,
+  addBorder: {
+    borderWidth: 2,
   },
-
-  // Android shadow
-  elevation: 8, // Try adjusting this for more/less shadow
-},
-
-  topBox: {
-    flex: 1,
-    margin: 5,
+  flex1: {
+    flex: 1
   },
-      upperTopBox:{
-        flex: 1,
-        margin: 5,
-        flexDirection: 'row'
-      },
-          childBox: {
-            flex: 1,
-            margin: 5,
-          },
-      lowerTopBox: {
-        flex: 5,
-        margin: 5
-      },
-
-  botBox: {
-    flex: 1,
-    margin: 5,
-    flexDirection: 'row'
-  }, 
-  // childBox also used in botBox
+  flexDirectionRows:{
+    flexDirection: 'row',
+  },
+  
 });
