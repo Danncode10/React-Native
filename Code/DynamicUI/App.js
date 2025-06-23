@@ -28,7 +28,17 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   text: {
-    fontSize: 24,
+    ...Platform.select({
+      ios: {
+        color: 'purple',
+        fontSize: 24, 
+        fontStyle: 'italic'
+      },
+      android: {
+        color: 'blue',
+        fontSize: 30
+      }
+    }),
     fontWeight: 'bold',
     textAlign: 'center'
   }
