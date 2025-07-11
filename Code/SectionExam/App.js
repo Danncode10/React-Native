@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, SafeAreaView, useWindowDimensions, Platform} from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView, useWindowDimensions, Platform, Pressable} from 'react-native';
 import { useState } from 'react';
+import { Box } from './Box'; 
 
 
 export default function App() {
 
   const width = useWindowDimensions().width;
   const height = useWindowDimensions().height;
-  const isIpadLandscape = width > height && height > 500 ? true : false;
+  const isLargeScreen = width > 500 ? true : false;
+  const isIpadLandscape = width > 500 && height > 600 ? true : false;
 
 
   // For Barstyle
@@ -21,11 +23,28 @@ export default function App() {
       
       {/* Upper */}
       <View style={[styles.upperContainer, styles.addBorder, { flexDirection: isIpadLandscape ? 'column' : 'row' }]}>
-        <View style={[styles.addBorder, {flex: 1}]}>
-          <Button title='Dark Status Bar' onPress={() => setBarStyleValue('dark') }/>
+        <View style={[styles.addBorder, {flex: 1, justifyContent: 'center'}]}>
+          <Button title='Dark Status Bar' onPress={() => setBarStyleValue('dark') }/> 
+            {/* Note:  setBarStyleValue('dark') and not 'dark-content'*/}
           <Button title='Light Status Bar' onPress={() => setBarStyleValue('light') }/>
+          <Pressable>
+            <Text style={styles.pressText}>Pressable Text</Text>
+          </Pressable>
         </View>
-        <View style={[styles.addBorder, {flex: 1}]}></View>
+
+        <View style={[styles.addBorder, {flex: 1, flexWrap: 'wrap', flexShrink: 1}]}>
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          
+          
+        </View>
       </View>
 
       {/* Middle */}
@@ -50,6 +69,7 @@ const styles = StyleSheet.create({
   },
   addBorder: {
     borderWidth: 2,
+    margin: 5,
   },
   upperContainer: {
     flex: 1,
@@ -61,4 +81,10 @@ const styles = StyleSheet.create({
   lowerContainer: {
     flex: 1, 
   },
+  pressText: {
+    fontSize: 18,
+    color: 'blue',
+    textAlign: 'center',
+    marginTop: 10,
+  }
 });
