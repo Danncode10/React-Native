@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, useWindowDimensions, Platform} from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView, useWindowDimensions, Platform} from 'react-native';
+import { useState } from 'react';
+
 
 export default function App() {
 
@@ -7,13 +9,23 @@ export default function App() {
   const height = useWindowDimensions().height;
   const isIpadLandscape = width > height && height > 500 ? true : false;
 
+
+  // For Barstyle
+  const [barStyleValue, setBarStyleValue] = useState('default');
+  <StatusBar barStyle={barStyleValue} />
+
   // console.log(`Width: ${width}, Height: ${height}, Is iPad Landscape: ${isIpadLandscape}`);
 
   return (
     <SafeAreaView style={[styles.container, { flexDirection: isIpadLandscape ? 'row' : 'column' }]}>
-      {/* Upper */}
-      <View style={[styles.upperContainer, styles.addBorder]}>
 
+      {/* Upper */}
+      <View style={[styles.upperContainer, styles.addBorder, { flexDirection: isIpadLandscape ? 'column' : 'row' }]}>
+        <View style={[styles.addBorder, {flex: 1}]}>
+          <Button title='Dark Status Bar' onPress={() => setBarStyleValue('dark-content') }/>
+          <Button title='Light Status Bar' onPress={() => setBarStyleValue('light-content') }/>
+        </View>
+        <View style={[styles.addBorder, {flex: 1}]}></View>
       </View>
 
       {/* Middle */}
@@ -41,6 +53,7 @@ const styles = StyleSheet.create({
   },
   upperContainer: {
     flex: 1,
+    flexDirection: 'row',
   },
   middleContainer: {
     flex: 2,
