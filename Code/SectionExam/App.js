@@ -11,19 +11,19 @@ export default function App() {
 
 
   // For Barstyle
-  const [barStyleValue, setBarStyleValue] = useState('default');
-  <StatusBar barStyle={barStyleValue} />
+  const [barStyleValue, setBarStyleValue] = useState('auto');
 
   // console.log(`Width: ${width}, Height: ${height}, Is iPad Landscape: ${isIpadLandscape}`);
 
   return (
     <SafeAreaView style={[styles.container, { flexDirection: isIpadLandscape ? 'row' : 'column' }]}>
-
+      <StatusBar style={barStyleValue} />
+      
       {/* Upper */}
       <View style={[styles.upperContainer, styles.addBorder, { flexDirection: isIpadLandscape ? 'column' : 'row' }]}>
         <View style={[styles.addBorder, {flex: 1}]}>
-          <Button title='Dark Status Bar' onPress={() => setBarStyleValue('dark-content') }/>
-          <Button title='Light Status Bar' onPress={() => setBarStyleValue('light-content') }/>
+          <Button title='Dark Status Bar' onPress={() => setBarStyleValue('dark') }/>
+          <Button title='Light Status Bar' onPress={() => setBarStyleValue('light') }/>
         </View>
         <View style={[styles.addBorder, {flex: 1}]}></View>
       </View>
