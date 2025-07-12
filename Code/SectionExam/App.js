@@ -4,12 +4,6 @@ import { useState } from 'react';
 import { Box } from './Box'; 
 
 
-// - - - - - - V A R I A B L E S - - - - - - - //
-
-const distance = 10;
-const topValue = 0;
-
-
 export default function App() {
 
   const width = useWindowDimensions().width;
@@ -17,9 +11,24 @@ export default function App() {
   const isLargeScreen = width > 500 ? true : false;
   const isIpadLandscape = width > 500 && height > 600 ? true : false;
 
+  // For Circle Position
+  const [topValue, setTopValue] = useState(100);
+
 
   // For Barstyle
   const [barStyleValue, setBarStyleValue] = useState('auto');
+
+
+
+
+
+  // - - - - - - - F U N C T I O N S - - - - - - - //
+
+function moveUp(){
+  console.log('Move Up');
+  setTopValue(prev => prev - distance); // go up (subtract to move visually upward)
+}
+
 
   // console.log(`Width: ${width}, Height: ${height}, Is iPad Landscape: ${isIpadLandscape}`);
 
@@ -164,10 +173,6 @@ const styles = StyleSheet.create({
   },
 });
 
+// - - - - - - V A R I A B L E S - - - - - - - //
 
-// - - - - - - - F U N C T I O N S - - - - - - - //
-
-function moveUp(){
-  console.log('Move Up');
-  topValue += distance;
-}
+const distance = 10;
