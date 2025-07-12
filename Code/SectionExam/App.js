@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { Box } from './Box'; 
 
 
+// - - - - - - V A R I A B L E S - - - - - - - //
+
+const distance = 10;
+const topValue = 0;
+
+
 export default function App() {
 
   const width = useWindowDimensions().width;
@@ -58,7 +64,7 @@ export default function App() {
 
         <View style={[styles.addBorder ,{flex: 5, padding: 10}]} > {/* -------------------- window map */}
           {/* This is the circle */}
-          <View style={styles.circle}></View>
+          <View style={[styles.circle, {top: topValue}]}></View>
         </View>
 
           {/* Button COntrols */}
@@ -69,7 +75,7 @@ export default function App() {
 
             <View style={{flexDirection: 'row', gap: 10, flex: 3, justifyContent: 'flex-end'}}>
 
-              <Pressable onPress={() => moveUp()}><View style={{backgroundColor: 'darkblue',}}>
+              <Pressable onPress={() => moveUp()}><View style={[{backgroundColor: 'darkblue'}]}>
               <Text style={{color: 'white'}}>Up</Text>
               </View></Pressable>
 
@@ -153,13 +159,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: 'darkblue',
     position: 'absolute',
-    top: 10,
-    left: 10,
+    top: 100,
+    left: 100,
   },
 });
 
 
+// - - - - - - - F U N C T I O N S - - - - - - - //
 
 function moveUp(){
   console.log('Move Up');
+  topValue += distance;
 }
