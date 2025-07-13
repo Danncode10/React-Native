@@ -12,8 +12,8 @@ export default function App() {
   const isIpadLandscape = width > 500 && height > 600 ? true : false;
 
   // For Circle Position
-  const [topValue, setTopValue] = useState(100);
-
+  const [marginTop, setMarginTop] = useState(0);
+  const distance = 10;
 
   // For Barstyle
   const [barStyleValue, setBarStyleValue] = useState('auto');
@@ -26,7 +26,7 @@ export default function App() {
 
 function moveUp(){
   console.log('Move Up');
-  setTopValue(prev => prev - distance); // go up (subtract to move visually upward)
+  setMarginTop(prev => prev - distance); // go up (subtract to move visually upward)
 }
 
 
@@ -72,8 +72,8 @@ function moveUp(){
       <View style={[styles.middleContainer, styles.addBorder]}>
 
         <View style={[styles.addBorder ,{flex: 5, padding: 10}]} > {/* -------------------- window map */}
-          {/* This is the circle */}
-          <View style={[styles.circle, {top: topValue}]}></View>
+          {/* -------- This is the circle --------- */}
+          <View style={[styles.circle, {marginTop: marginTop}]}></View>
         </View>
 
           {/* Button COntrols */}
@@ -167,12 +167,7 @@ const styles = StyleSheet.create({
     width: 60,
     borderRadius: 50,
     backgroundColor: 'darkblue',
-    position: 'absolute',
     top: 100,
     left: 100,
   },
 });
-
-// - - - - - - V A R I A B L E S - - - - - - - //
-
-const distance = 10;
