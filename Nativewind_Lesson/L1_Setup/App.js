@@ -7,7 +7,7 @@ export default function App() {
   const boxColor = `bg-blue-${intensity}`
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-center bg-white p-5">
+    <View className="flex-1 items-center justify-center bg-white p-5">
 
       {/* <Text className="text-xl font-semibold text-center text-blue-600 uppercase underline dark:text-gray-100">
         Welcome to My App!
@@ -50,6 +50,7 @@ export default function App() {
       {/* Profile Card Exercise */}
 
       <ProfileCard 
+          profileImg={require('./assets/profile.png')}
           name="Lester Dann G. Lopez"
           school="Nueva Vizcaya State University"
           course="Computer Science major in Robotics"
@@ -58,6 +59,6 @@ export default function App() {
       
 
 
-    </SafeAreaView>
+    </View>
   );
 }
