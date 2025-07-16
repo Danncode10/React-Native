@@ -5,11 +5,16 @@ import { Box } from "./components/Box";
 export default function App() {
   const intensity = '100'
   const boxColor = `bg-blue-${intensity}`
+  
+  const styles = {
+    notPhoneScreen: "md:flex-row lg:flex-row xl:flex-row",
+  }
 
   return (
     <View className="flex-1 items-center justify-center bg-white p-5">
 
-      <View className="flex-col md:flex-row">
+      
+      <View className={`flex-col ${styles.notPhoneScreen}`}>
         <Box />
         <Box />
       </View>
