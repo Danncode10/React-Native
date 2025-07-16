@@ -8,6 +8,13 @@ export default function App() {
 
   return (
     <View className="flex-1 items-center justify-center bg-white p-5">
+
+      <View className="flex-col md:flex-row">
+        <Box />
+        <Box />
+      </View>
+
+
       <View className="border border-red-900 h-1/2 w-1/2 justify-center">
         <Box />
         <Box />
