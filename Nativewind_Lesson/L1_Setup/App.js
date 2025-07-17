@@ -4,8 +4,8 @@ import { PricingTable } from "./components/PricingTable";
  
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white p-5">
-      <PricingTable />
+    <View  className="flex-1 items-center bg-white p-5 mt-10">
+        <PricingTable />
 
     </View>
   );

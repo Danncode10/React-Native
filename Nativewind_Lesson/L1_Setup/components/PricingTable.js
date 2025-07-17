@@ -7,36 +7,63 @@ export function PricingTable() {
     }
 
   return (
-    <View className="flex-col md:flex-row gap-4 p-4 h-2/3 w-full">
-  {/* Free Plan */}
-  <View className="flex-1 items-center justify-center gap-4 bg-blue-100 border border-blue-300 rounded-xl shadow-lg">
-    <Text className="text-4xl text-blue-900 md:text-6xl">Free Plan</Text>
-    <View className="items-center justify-center">
-      <Text className="text-xl md:text-2xl">Lorem ipsum dolor sit amet</Text>
-      <Text className="text-xl md:text-2xl">Consectetur adipiscing elit</Text>
-      <Text className="text-xl md:text-2xl">Sed do eiusmod tempor</Text>
+    <View className="flex-col md:flex-row gap-4 p-4 h-3/4 w-full">
+      {/* Header */}
+    <View className="mb-8 items-center">
+      <Text className="text-4xl md:text-6xl font-extrabold text-indigo-900">
+        FlashLearner.ai
+      </Text>
+      <Text className="text-lg md:text-xl text-gray-700 mt-2 text-center">
+        Boost your memory with smart AI flashcards
+      </Text>
     </View>
-    <Pressable onPress={() => console.log("Free Plan")}>
-      <View className="bg-blue-900 rounded-lg p-2 shadow-lg">
-        <Text className="text-4xl text-blue-100 md:text-5xl">0$/month</Text>
+  {/* Free Plan */}
+    <View className="w-full h-[300px] bg-blue-100 border border-blue-300 rounded-2xl shadow-xl p-6 items-center justify-center gap-6">
+      
+      {/* Title */}
+      <Text className="text-4xl md:text-6xl font-extrabold text-blue-900">Free Plan</Text>
+
+      {/* Features */}
+      <View className="gap-2 items-center">
+        <Text className="text-base md:text-xl text-blue-800">50 AI-generated flashcards/month</Text>
+        <Text className="text-base md:text-xl text-blue-800">1 subject limit</Text>
+        <Text className="text-base md:text-xl text-blue-800">Basic AI understanding only</Text>
       </View>
-    </Pressable>
-  </View>
+
+      {/* Price Button */}
+      <Pressable onPress={() => console.log("Free Plan")} className="active:opacity-80">
+        <View className="bg-blue-900 px-6 py-3 rounded-full shadow-md">
+          <Text className="text-white text-2xl md:text-4xl font-bold">FREE</Text>
+        </View>
+      </Pressable>
+
+    </View>
+
 
   {/* Premium Plan */}
-  <View className="flex-1 items-center justify-center gap-4 bg-green-100 border border-green-300 rounded-xl shadow-lg">
-    <Text className="text-4xl text-green-900 md:text-6xl">Premium Plan</Text>
-    <View className="items-center justify-center">
-      <Text className="text-xl md:text-2xl">Lorem ipsum dolor sit amet</Text>
-      <Text className="text-xl md:text-2xl">Consectetur adipiscing elit</Text>
-      <Text className="text-xl md:text-2xl">Sed do eiusmod tempor</Text>
-    </View>
-    <Pressable onPress={() => console.log("Premium Plan")}>
-      <View className="bg-green-900 rounded-lg p-2 shadow-lg">
-        <Text className="text-4xl text-green-100 md:text-5xl">9.99$/month</Text>
+    <View className="w-full h-[300px] bg-green-100 border border-green-300 rounded-2xl shadow-xl p-6 items-center justify-center gap-6">
+      
+      {/* Title */}
+      <Text className="text-4xl md:text-6xl font-extrabold text-green-900">Premium Plan</Text>
+
+      {/* Features */}
+      <View className="gap-2 items-center">
+        <Text className="text-base md:text-xl text-green-800">Unlimited AI flashcards</Text>
+        <Text className="text-base md:text-xl text-green-800">All subjects & decks</Text>
+        <Text className="text-base md:text-xl text-green-800">Advanced memory-boosting AI</Text>
+        <Text className="text-base md:text-xl text-green-800">Personalized review schedules</Text>
+        <Text className="text-base md:text-xl text-green-800"> Smart reminders & progress tracking</Text>
       </View>
-    </Pressable>
-  </View>
+
+      {/* Price Button */}
+      <Pressable onPress={() => console.log("Premium Plan")} className="active:opacity-80">
+        <View className="bg-green-900 px-6 py-3 rounded-full shadow-md">
+          <Text className="text-white text-2xl md:text-4xl font-bold">$9.99 / month</Text>
+        </View>
+      </Pressable>
+    </View>
+
+
 </View>
     
   );
