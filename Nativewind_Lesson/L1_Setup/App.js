@@ -1,15 +1,20 @@
 import "./global.css"
-import { Text, View, Image, SafeAreaView, TouchableOpacity, Alert } from "react-native";
-import { MyButton } from "./components/MyButton";
- 
+import { View, TextInput, Text} from 'react-native';
+import { use, useState } from "react";
+
 export default function App() {
+
+  const [name, setName] = useState("");
+
   return (
-    <View  className="flex-1 items-center bg-white p-5 mt-10">
-        <MyButton label="Primary" variant="primary" onPress={() => Alert.alert("Primary text")}/>
-        <MyButton label="Secondary" variant="secondary" onPress={() => Alert.alert("Secondary text")}/>
-        <MyButton label="Disabled" variant="disabled" onPress={() => Alert.alert("Disabled text")}/>
-        <MyButton label="Danger" variant="danger" onPress={() => Alert.alert("Danger text")}/>
-        
+    <View className="flex-1 justify-center items-center bg-white">
+      <TextInput
+        className="border border-gray-400 rounded-md px-4 py-2 w-72"
+        placeholder="Enter your name"
+        value = {name}
+        onChangeText={setName}
+      />
+      <Text>My name is {name}</Text>
     </View>
   );
 }
