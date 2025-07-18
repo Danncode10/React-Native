@@ -1,20 +1,40 @@
 import "./global.css"
-import { View, TextInput, Text} from 'react-native';
-import { use, useState } from "react";
+import React, { useState } from 'react';
+import { View, Text, Alert } from 'react-native';
+import { MyInput } from './components/MyInput';
+import { MyButton } from "./components/MyButton";
+
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [passWord, setPassWord] = useState('')
 
-  const [name, setName] = useState("");
+  function showLogIn(){
+    Alert.alert("Email: " + email + "\n" +
+                "Password: " + passWord
+    );
+  }
 
   return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <TextInput
-        className="border border-gray-400 rounded-md px-4 py-2 w-72"
-        placeholder="Enter your name"
-        value = {name}
-        onChangeText={setName}
+    <View className="flex-1 justify-center items-center bg-blue-200 px-4">
+
+      <Text className="font-bold text-4xl color-blue-800 " >Fakebook</Text>
+
+      <MyInput
+        placeholder="Email"
+        value={email}
+        onChange={setEmail}
       />
-      <Text>My name is {name}</Text>
+
+      <MyInput
+        placeholder="Password"
+        value={passWord}
+        onChange={setPassWord}
+        secure={true}
+      />
+
+      <MyButton label='Sign In' onPress={showLogIn}/>
+
     </View>
   );
 }
