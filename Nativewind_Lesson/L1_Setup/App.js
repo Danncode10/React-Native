@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 import { MyInput } from './components/MyInput';
 import { MyButton } from "./components/MyButton";
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 
 export default function App() {
@@ -16,7 +17,8 @@ export default function App() {
   }
 
   return (
-    <View className="flex-1 justify-center items-center bg-blue-200 px-4">
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View className="flex-1 justify-center items-center bg-blue-200 px-4">
 
       <Text className="font-bold text-4xl color-blue-800 " >Fakebook</Text>
 
@@ -36,5 +38,6 @@ export default function App() {
       <MyButton label='Sign In' onPress={showLogIn}/>
 
     </View>
+    </TouchableWithoutFeedback>
   );
 }
