@@ -2,7 +2,7 @@ import {TouchableOpacity, Text} from 'react-native';
 
 export function MyButton({ label, variant = "primary", onPress}){
 
-    const baseStyle = 'rounded-full px-12 py-3 items-center m-4'
+    const baseStyle = 'rounded-full px-5 py-3 items-center m-1 shadow-sm'
 
     const variants = {
         primary: "bg-blue-600",
