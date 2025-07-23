@@ -1,6 +1,7 @@
 import "./global.css";
-import { Text, View, FlatList, SafeAreaView } from "react-native";
+import { Text, View, FlatList, SafeAreaView, SectionList } from "react-native";
 import PokemonList from './data.json';
+import groupPokemonList from './grouped-data.json'
 
 export default function App() {
   // 💡 Function that returns a Tailwind background class based on type
@@ -37,19 +38,61 @@ export default function App() {
   return (
     <View className="flex-1 bg-white p-4">
       <SafeAreaView className="flex-1">
-        <FlatList
-        data={[]} // 🧺 The list of Pokémon
-        renderItem={renderPokemonCard} // 🖌️ How to display each Pokémon
-        keyExtractor={(item) => item.id} // 🏷️ Unique key for each item
-        ItemSeparatorComponent={() => (
-          <View className="h-2" /> // just a 2-pixel vertical gap
-        )}
-        ListEmptyComponent={
-          <View className="items-center justify-center border border-red-500 flex-1">
-            <Text className="text-2xl font-bold color-red-500">No items Found</Text>
-          </View>
+        {/* <FlatList
+          data={PokemonList} // 🧺 The list of Pokémon
+          renderItem={renderPokemonCard} // 🖌️ How to display each Pokémon
+          keyExtractor={(item) => item.id} // 🏷️ Unique key for each item
+          ItemSeparatorComponent={() => (
+            <View className="h-2" /> // just a 2-pixel vertical gap
+          )}
+          ListEmptyComponent={
+            <View className="items-center justify-center border border-red-500 flex-1">
+              <Text className="text-2xl font-bold color-red-500">No items Found</Text>
+            </View>
+          }
+          ListHeaderComponent={
+            <View className="items-center justify-center">
+              <Text className="text-4xl mb-4 font-bold">Pokemon List</Text>
+            </View>
+          }
+          ListFooterComponent={
+            <View className="items-center justify-center">
+              <Text className="text-xl mb-4 font-bold color-red-500">End of the List</Text>
+            </View>
+          }
+      /> */}
+
+      <SectionList 
+        sections={groupPokemonList}
+        renderItem={({item}) => {
+          return(
+            <View
+              className={`items-center justify-center border 
+                          border-black w-full mb-4 rounded-2xl`}
+            >
+              <Text className="my-4 font-bold text-lg">{item}</Text>
+            </View>
+          );
+        }}
+        renderSectionHeader={({section}) => {
+            return(
+              <Text className="text-2xl font-bold">{section.type}</Text>
+            );
+          }
         }
+        ItemSeparatorComponent={() => (
+            <View className="h-2" /> // just a 2-pixel vertical gap
+          )}
+        SectionSeparatorComponent={() => (
+            <View className="h-3" /> 
+          )}
+
+
+          
+
       />
+
+
       </SafeAreaView>
     </View>
   );
