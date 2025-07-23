@@ -1,49 +1,51 @@
-import "./global.css"
-import { Text, View, ScrollView, SafeAreaView, FlatList } from "react-native";
+import "./global.css";
+import { Text, View, FlatList, SafeAreaView } from "react-native";
 import PokemonList from './data.json';
- 
+
 export default function App() {
+  // 💡 Function that returns a Tailwind background class based on type
+  function getColorClass(type) {
+    const colorMap = {
+      Water: "bg-blue-300",
+      Fire: "bg-red-300",
+      Grass: "bg-green-300",
+      Electric: "bg-yellow-300",
+      Psychic: "bg-purple-300",
+      Rock: "bg-gray-300",
+      Ground: "bg-amber-300",
+      Bug: "bg-lime-300",
+      Normal: "bg-zinc-300",
+    };
 
-    function getColorClass(type) {
-      const colorMap = {
-        Water: "bg-blue-300",
-        Fire: "bg-red-300",
-        Grass: "bg-green-300",
-        Electric: "bg-yellow-300",
-        Psychic: "bg-purple-300",
-        Rock: "bg-gray-300",
-        Ground: "bg-amber-300",
-        Bug: "bg-lime-300",
-        Normal: "bg-zinc-300",
-      };
+    return colorMap[type] || "bg-slate-300"; // fallback
+  }
 
-      return colorMap[type] || "bg-slate-300"; // fallback
-}
+  // 🖌️ Function to render each Pokémon item
+  const renderPokemonCard = ({ item }) => {
+    const bgColor = getColorClass(item.type);
 
-
+    return (
+      <View
+        className={`items-center justify-center border border-black w-full mb-4 rounded-2xl ${bgColor}`}
+      >
+        <Text className="my-4 font-bold text-lg">{item.name}</Text>
+        <Text className="my-2 italic">{item.type}</Text>
+      </View>
+    );
+  };
 
   return (
-    <View className="flex-1 justify-center bg-white p-4">
-      <SafeAreaView className="flex-1">
-      <ScrollView className="flex-1">
-        {
-          PokemonList.map(pokemon => {
-
-            const bgColor = getColorClass(pokemon.type);
-
-            return(
-              <View key={pokemon.id} 
-              className={`items-center justify-center border border-black w-full mb-4 rounded-2xl ${bgColor}`}>
-                <Text className="my-4 font-bold">{pokemon.name}</Text>
-                <Text className="my-4">{pokemon.type}</Text>
-              </View>
-            );
-          })
-        }
-       
-      </ScrollView>
+    <View className="flex-1 bg-white p-4">
+      <SafeAreaView>
+        <FlatList
+        data={PokemonList} // 🧺 The list of Pokémon
+        renderItem={renderPokemonCard} // 🖌️ How to display each Pokémon
+        keyExtractor={(item) => item.id} // 🏷️ Unique key for each item
+        ItemSeparatorComponent={() => (
+          <View className="h-2" /> // just a 2-pixel vertical gap
+        )}
+      />
       </SafeAreaView>
-      
     </View>
   );
 }
