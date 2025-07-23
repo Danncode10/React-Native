@@ -36,14 +36,19 @@ export default function App() {
 
   return (
     <View className="flex-1 bg-white p-4">
-      <SafeAreaView>
+      <SafeAreaView className="flex-1">
         <FlatList
-        data={PokemonList} // 🧺 The list of Pokémon
+        data={[]} // 🧺 The list of Pokémon
         renderItem={renderPokemonCard} // 🖌️ How to display each Pokémon
         keyExtractor={(item) => item.id} // 🏷️ Unique key for each item
         ItemSeparatorComponent={() => (
           <View className="h-2" /> // just a 2-pixel vertical gap
         )}
+        ListEmptyComponent={
+          <View className="items-center justify-center border border-red-500 flex-1">
+            <Text className="text-2xl font-bold color-red-500">No items Found</Text>
+          </View>
+        }
       />
       </SafeAreaView>
     </View>
